@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)https://gradeit.cs.washington.edu/uwcse373//turnin/code/turnin.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		
+		<title>Homework Turnin</title>
+		<style type="text/css">
+/* Grade-It homework turnin page style sheet */
+
+a {
+	color: #aa4400;
+	text-decoration: none;
+}
+
+a:hover {
+	background-color: #FFFF99;
+	text-decoration: underline;
+}
+
+a img {
+	border-width: 0;
+}
+
+.aside {
+	font-size: small;
+}
+
+body {
+	background-color: #ffffff;
+	color: #000000;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida", "Helvetica Neue", "Helvetica", Verdana, Arial, sans-serif;
+	font-size: 10pt;
+	padding: 1em;
+}
+
+#cheatpolicyexplain {
+	color: #800;
+	font-weight: bold;
+}
+
+.cheatwarning {
+	text-indent: -2em;
+	margin-left: 3em;
+}
+
+.deemphasized {
+	color: #666666;
+}
+
+dt {
+	font-weight: bold;
+}
+
+.emphasized {
+	font-weight: bold;
+}
+
+.error, .errorfixed {
+	background-color: #FFFFDD;
+	border: thin solid gray;
+	font-weight: bold;
+}
+
+.error {
+	color: red;
+}
+
+.errorfixed {
+	color: #000099;
+}
+
+#errormessage, .error, #warningmessage, .warning {
+	font-size: 110%;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	margin: 1em;
+}
+
+#errormessage, .error {
+	background-color: #ffe8e8;
+	border: 3px solid #777777;
+	color: red;
+	font-size: larger;
+}
+
+.excitingnews {
+	background-color: #eeeeff;
+	border: 2px dashed #00AA00;
+	overflow: hidden;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.filename {
+	text-decoration: none;
+}
+
+form, #main {
+	padding-top: 1em;
+	padding-left: 1em;
+	padding-right: 1em;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 70em;
+}
+
+form td, form th {
+	padding-top: 0.3em;
+}
+
+h1 {
+	margin: 0em;
+	/* margin-top: 0.25em; */
+	padding-top: 0.25em;
+}
+
+.highlight {
+	background-color: yellow;
+}
+
+img {
+	vertical-align: bottom;
+}
+
+img.icon {
+	height: 16px;
+	width: 16px;
+	vertical-align: baseline;
+}
+
+img.imageicon, img.sidebaricon {
+	border: none;
+	height: 16px;
+	width: 16px;
+	vertical-align: middle;
+}
+
+.leftcolumn {
+	padding-right: 20px;
+	text-align: left;
+	vertical-align: top;
+	width: 150px;
+}
+
+#loading {
+	display: none;
+}
+
+.noteslist li {
+	margin-bottom: 0.5em;
+}
+
+.saveforyourrecords {
+	background-color: #ffc;
+	border: 1px dashed red;
+	padding: 0.5em;
+}
+
+.separated {
+	padding-bottom: 2em;
+}
+
+.separatedtop {
+	padding-top: 2em;
+}
+
+.success {
+	color: #070;
+	font-size: 200%;
+	font-weight: bold;
+}
+
+.acceptedproblems {
+	color: #730;
+	font-size: 200%;
+	font-weight: bold;
+}
+
+table {
+	margin: 0px;
+	padding: 0px;
+	border-width: 0px;
+	color: #000000;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+td, th {
+	vertical-align: top;
+	white-space: nowrap;
+}
+
+td.spaced {
+	padding-right: 20px;
+}
+
+tr.evenrow {
+	background-color: #EEEEEE;
+}
+
+.turninlink {
+	background-color: #EEEEEE;
+	border: 2px solid #CCCCCC;
+	float: right;
+	margin-right: 1em;
+	padding: 0.5em;
+}
+
+.urgent {
+	color: #990000;
+	font-weight: bold;
+}
+
+/* ------------------- */
+button:hover, input[type="submit"]:hover {
+	color: #666600;
+}
+
+h1 {
+	padding: 0em;
+	padding-top: 0.25em;
+	text-align: center;
+}
+
+h2 {
+	line-height: 16pt;
+}
+
+h2.spaced {
+	margin-top: 2em;
+}
+
+.invalid {
+	background-color: #ffff00;
+}
+
+#warningmessage, .warning {
+	background-color: #fff8dd;
+	border: 3px solid rgb(125, 85, 0) /* rgb(205, 135, 0) */;
+	color: rgb(125, 85, 0);
+	font-size: larger;
+}
+
+#errormessage p, #warningmessage p, .warning p {
+	margin-top: 0.25em;
+	margin-bottom: 0.25em;
+}
+
+.failure {
+	color: red;
+	font-weight: bold;
+}
+
+.filename {
+	font-family: monospace;
+}
+
+hr {
+	margin-top: 2em;
+}
+
+input[type="submit"] {
+	font-family: Arial, sans-serif;
+	font-size: 18pt;
+	font-weight: bold;
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+.nametable {
+	 border: none;
+	 border-collapse: collapse;
+	 margin: 0em;
+	 padding: 0em;
+}
+
+.nametable td, .nametable th, td.filename {
+	padding-right: 0.5em;
+}
+
+#submitarea {
+	margin-bottom: 2em;
+	margin-top: 2em;
+	text-align: center;
+}
+
+.surveyarea, .tabcell {
+	display: none;
+}
+
+th {
+	padding-right: 2em;
+	text-align: left;
+}
+
+/* */
+body, html {
+	margin: 0;
+	padding: 0;
+}
+
+.codefile {
+	border: 2px solid #2F6FAB;
+	padding: 0;
+}
+
+.codefile h2 {
+	background-color: #2F6FAB;
+	color: white;
+	margin: 0;
+	padding: 0 0.5em 0.25em;
+}
+
+.codefile pre, .codefile xmp {
+	background-color: #F9F9F9;
+	line-height: 1.05em;
+	margin: 0;
+	padding: 0.75em;
+	overflow: auto;
+}
+
+.columnlabel {
+	float: left;
+	font-weight: bold;
+	width: 9em;
+}
+
+.errormessage, .warningmessage {
+	background-color: #FFEEEE;
+	border: 2px dashed red;
+	margin-left: 2em;
+	margin-right: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+.errormessage h2, .warningmessage h2 {
+	color: red;
+	font-size: larger;
+}
+
+.errormessage pre {
+	font-size: larger;
+	font-weight: bold;
+}
+
+h1 {
+	background-color: #EEEEEE;
+	border-bottom: 2px solid gray;
+	text-align: center;
+}
+
+h1, h2, h3 {
+	white-space: nowrap;
+}
+
+.info {
+	text-align: center;
+}
+
+#main {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+#studentinfoheader {
+	font-size: 12pt;
+	font-weight: normal;
+	margin-left: auto;
+	margin-right: auto;
+	min-width: 20em;
+	width: 20em;
+}
+
+.tooltip {
+	background-color: #FFFFAA;
+	border: 1px solid #999999;
+	margin: 0.5em;
+}
+
+.warningmessage {
+	background-color: #FFFFDD;
+	border: 2px dashed yellow;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+		</style>
+	<style type="text/css"></style></head>
+
+	<body class=" hasGoogleVoiceExt">
+		<h1>Homework Turnin</h1>
+
+
+<div id="main">
+	<h2 id="studentinfoheader">
+		<span class="columnlabel">Name:</span>
+		Shawn		William		Stern		<br>
+
+		<span class="columnlabel">Email:</span>
+		swstern@uw.edu		<br>
+		
+					<span class="columnlabel">Student ID:</span>
+			0921475			<br>
+		
+					<span class="columnlabel">Section:</span>
+			A			<br>
+		
+		<span class="columnlabel">Course:</span>
+		CSE 		373		12sp		<br>
+
+		<span class="columnlabel">Assignment:</span>
+		hw2	</h2>
+
+
+	<h2 id="studentinfoheader">
+		<span class="columnlabel">Receipt ID:</span>
+		a6b11ea39ef85d28d11fe28e2332d0c9	</h2>
+
+	
+	<p>
+		Replacing prior submission from Wed 2012/04/11 11:51am.
+	</p>
+	
+	
+<!--
+<div class="warning">
+	NOTE: Emailed receipts temporarily disabled because of a server problem.  Please save a copy of this web page because you won't be receiving a receipt email.
+</div>
+-->
+
+	
+	<h3 class="success">Turnin Successful!</h3>
+
+	<p class="saveforyourrecords">
+		Please <strong style="color: #090; background-color: #ffb">save or print a copy of this page</strong> for your records.  A receipt has also been emailed to you, but you should still save or print a copy of this web page to make certain that you have proof of your turnin.  <strong>If your files become lost or damaged and you do not have any record of your receipt, we will not be able to give you any credit for your work.</strong>
+	</p>
+	
+		
+	<p>
+		The following file(s) were received:
+	</p>
+
+	
+
+		<div class="codefile">
+			<h2>
+				FirstNonSmaller.java &nbsp; &nbsp; 
+				<span class="aside">(4546 bytes)</span>
+			</h2>
+			
+			<pre>// Shawn Stern - 0921475 - CSE 373, Spring 2012 - Homework 2 #5
+
+import java.util.Arrays;    // For testing only
+import java.util.Random;    // For testing only
+
+public class FirstNonSmaller {
+    
+    public static final int INT = 6;            // Global int for firstNonSmaller to look for
+    public static final int NUM = 10;           // Global int used for testing
+    public static final int NUM_SAMPLES = 10;   // Global int for how many times to run test loop
+    
+    public static void main(String[] args) {
+        // Commented code was used to test that method actually finds the right index
+        
+//      int[] a = createRandomSortedArray(20);
+//      int[] b = createRandomSortedArray(20);
+//      int[] c = createRandomSortedArray(20);
+//      int[] d = createRandomSortedArray(20);
+//      int[] e = createRandomSortedArray(20);
+//      
+//      System.out.println(Arrays.toString(a));
+//      System.out.println(Arrays.toString(b));
+//      System.out.println(Arrays.toString(c));
+//      System.out.println(Arrays.toString(d));
+//      System.out.println(Arrays.toString(e));
+//      
+//      System.out.println();
+//      
+//      System.out.println("Smallest index of " + INT + " is: " + firstNonSmallerIndex(a, INT));
+//      System.out.println("Smallest index of " + INT + " is: " + firstNonSmallerIndex(b, INT));
+//      System.out.println("Smallest index of " + INT + " is: " + firstNonSmallerIndex(c, INT));
+//      System.out.println("Smallest index of " + INT + " is: " + firstNonSmallerIndex(d, INT));
+//      System.out.println("Smallest index of " + INT + " is: " + firstNonSmallerIndex(e, INT));
+        
+        // run the timed tests, don't do anything with the double
+        test(NUM);
+        test(10 * NUM);
+        test(100 * NUM);
+        test(1000 * NUM);
+        test(10000 * NUM);  
+        test(100000 * NUM);
+    }
+    
+    // Accepts a sorted array of integers and an integer value. Returns the smallest index that
+    // a number of the given value can be found in the given array. Returns -1 if the value
+    // does not exist in the array.
+    public static int firstNonSmallerIndex(int[] array, int value) {
+        return firstNonSmallerIndex(array, value, 0, array.length - 1);     
+    }
+
+    // Helper method for firstNonSmallerIndex
+    private static int firstNonSmallerIndex(int[] nums, int value, int min, int max) {
+        // In this case, value not found in array
+        if (min &gt; max) {
+            return -1;
+        }
+
+        // Find the midpoint of the array based on min and max
+        int mid = (min + max) / 2;
+        
+        // If we're on the desired value and the element in front of us is less than value (or 0
+        // which means we're at the beginning of the array anyway) return the current value of mid
+        if (nums[mid] == value &amp;&amp; (mid == 0 || nums[mid - 1] &lt; value)) {
+            return mid;
+        } else if (nums[mid] &lt; value) { // Check further up in the array
+            return firstNonSmallerIndex(nums, value, mid + 1, max);
+        } else { // nums[mid] &gt; value OR we're on the value, but not at the first occurrence of it!
+            return firstNonSmallerIndex(nums, value, min, mid - 1);
+        }
+    }
+    
+    // Make a sorted array of randomly generated numbers.
+    // Code provided by instructor
+    public static int[] createRandomSortedArray(int size) {
+        Random rand = new Random();
+        int[] array = new int[size];
+        
+        for (int i = 0; i &lt; size; i++) {
+            // pick random numbers (subtract a bit so that some 
+            // are negative)
+            array[i] = rand.nextInt(size * 3) - size / 4;
+        }
+        
+        Arrays.sort(array);
+        return array;
+    }
+    
+    // Call firstNonSmallerIndex a number of times to find the average runtime for the given
+    // array size, and print the results to the console.
+    public static double test(int n) {
+        // Create a random, sorted array to play with
+        int[] nums = createRandomSortedArray(n);
+
+        // Find average runtime by summing all runtimes and diving by number of runs
+        double sum = 0;
+        for (int i = 0; i &lt; NUM_SAMPLES; i++) {
+            long startTime = System.nanoTime();
+            firstNonSmallerIndex(nums, INT);
+            sum += System.nanoTime() - startTime;
+        }
+        double elapsed = sum / NUM_SAMPLES;
+
+        // report and return results
+        System.out.println("for n = " + n + ", time = " + elapsed + "ns");
+        System.out.println();
+        return elapsed;
+    }
+}</pre>
+		</div>
+
+		
+		<div class="codefile">
+			<h2>
+				README.txt &nbsp; &nbsp; 
+				<span class="aside">(1149 bytes)</span>
+			</h2>
+			
+			<pre>1. I chose the sizes 10, 100, 1000, 10000, 100000, and 1000000 to test a variety of sizes with 
+increasing orders of magnitude. If the runtime is O(logN) then the runtime between sizes with 
+much higer magnitudes shouldn't increase drastically, as if it were an O(N) algorithm.
+
+---
+
+2. Example runtimes:
+
+for n = 10, time = 362.2ns
+
+for n = 100, time = 271.8ns
+
+for n = 1000, time = 573.8ns
+
+for n = 10000, time = 724.6ns
+
+for n = 100000, time = 935.9ns
+
+for n = 1000000, time = 1177.4ns
+
+---
+
+3. Runtimes are about as expected, with some oddness in that the array of size 100 typically runs 
+faster than the array of size 10 (this pattern exists for multiple runthroughs of the test, not 
+just this example). Since the runtime is supposed to run about O(logN), this function actually 
+seems to be performing better than expected. Even though, for example, 100,000 is 10 times larger
+than 10,000, the runtime is not even doubled between the two. The increase in time between 
+successively larger tests is slightly smaller, which seems to indicate to me that the runtime is 
+growing at about the rate of log N as desired.</pre>
+		</div>
+
+		
+</div>
+
+
+	<div id="loading">One moment...</div>
+	<pre id="dumptarget"></pre>
+	
+	
+	
+
+	<div id="tc_container" style="display: none" data="ih"></div></body></html>
