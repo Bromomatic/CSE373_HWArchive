@@ -1,0 +1,165 @@
+----- TESTING MAP'S GET METHOD -----
+United Arab Emirates's capital is...Abu Dabi
+Thailand's capital is...Bangkok
+Germany's capital is...Berlin
+Brazil's capital is...Brasilia
+Hungary's capital is...Budapest
+Wales's capital is...Cardiff
+Jamaica's capital is...Kingston
+Nepal's capital is...Kathmandu
+null's capital is...unknown
+Vatican City's capital is...null
+
+----- TESTING MAP'S REMOVE METHOD -----
+Map before any removals:
+0: (null, unknown)
+1: 
+2: 
+3: 
+4: (Wales, Cardiff) --> (Brazil, Brasilia) --> (Thailand, Bangkok)
+5: (Jamaica, Kingston)
+6: 
+7: (Vatican City, null) --> (Hungary, Budapest) --> (Germany, Berlin)
+8: (United Arab Emirates, Abu Dabi)
+9: 
+10: (Nepal, Kathmandu)
+
+Removing United Arab Emirates returns Abu Dabi.
+Map after removing United Arab Emirates:
+0: (null, unknown)
+1: 
+2: 
+3: 
+4: (Wales, Cardiff) --> (Brazil, Brasilia) --> (Thailand, Bangkok)
+5: (Jamaica, Kingston)
+6: 
+7: (Vatican City, null) --> (Hungary, Budapest) --> (Germany, Berlin)
+8: 
+9: 
+10: (Nepal, Kathmandu)
+
+Removing Thailand returns Bangkok.
+Map after removing Thailand:
+0: (null, unknown)
+1: 
+2: 
+3: 
+4: (Wales, Cardiff) --> (Brazil, Brasilia)
+5: (Jamaica, Kingston)
+6: 
+7: (Vatican City, null) --> (Hungary, Budapest) --> (Germany, Berlin)
+8: 
+9: 
+10: (Nepal, Kathmandu)
+
+Removing Germany returns Berlin.
+Map after removing Germany:
+0: (null, unknown)
+1: 
+2: 
+3: 
+4: (Wales, Cardiff) --> (Brazil, Brasilia)
+5: (Jamaica, Kingston)
+6: 
+7: (Vatican City, null) --> (Hungary, Budapest)
+8: 
+9: 
+10: (Nepal, Kathmandu)
+
+Removing Brazil returns Brasilia.
+Map after removing Brazil:
+0: (null, unknown)
+1: 
+2: 
+3: 
+4: (Wales, Cardiff)
+5: (Jamaica, Kingston)
+6: 
+7: (Vatican City, null) --> (Hungary, Budapest)
+8: 
+9: 
+10: (Nepal, Kathmandu)
+
+Removing Hungary returns Budapest.
+Map after removing Hungary:
+0: (null, unknown)
+1: 
+2: 
+3: 
+4: (Wales, Cardiff)
+5: (Jamaica, Kingston)
+6: 
+7: (Vatican City, null)
+8: 
+9: 
+10: (Nepal, Kathmandu)
+
+Removing Wales returns Cardiff.
+Map after removing Wales:
+0: (null, unknown)
+1: 
+2: 
+3: 
+4: 
+5: (Jamaica, Kingston)
+6: 
+7: (Vatican City, null)
+8: 
+9: 
+10: (Nepal, Kathmandu)
+
+Removing Jamaica returns Kingston.
+Map after removing Jamaica:
+0: (null, unknown)
+1: 
+2: 
+3: 
+4: 
+5: 
+6: 
+7: (Vatican City, null)
+8: 
+9: 
+10: (Nepal, Kathmandu)
+
+Removing Nepal returns Kathmandu.
+Map after removing Nepal:
+0: (null, unknown)
+1: 
+2: 
+3: 
+4: 
+5: 
+6: 
+7: (Vatican City, null)
+8: 
+9: 
+10: 
+
+Removing null returns unknown.
+Map after removing null:
+0: 
+1: 
+2: 
+3: 
+4: 
+5: 
+6: 
+7: (Vatican City, null)
+8: 
+9: 
+10: 
+
+Removing Vatican City returns null.
+Map after removing Vatican City:
+0: 
+1: 
+2: 
+3: 
+4: 
+5: 
+6: 
+7: 
+8: 
+9: 
+10:
