@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)https://gradeit.cs.washington.edu/uwcse373//turnin/code/turnin.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		
+		<title>Homework Turnin</title>
+		<style type="text/css">
+/* Grade-It homework turnin page style sheet */
+
+a {
+	color: #aa4400;
+	text-decoration: none;
+}
+
+a:hover {
+	background-color: #FFFF99;
+	text-decoration: underline;
+}
+
+a img {
+	border-width: 0;
+}
+
+.aside {
+	font-size: small;
+}
+
+body {
+	background-color: #ffffff;
+	color: #000000;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida", "Helvetica Neue", "Helvetica", Verdana, Arial, sans-serif;
+	font-size: 10pt;
+	padding: 1em;
+}
+
+#cheatpolicyexplain {
+	color: #800;
+	font-weight: bold;
+}
+
+.cheatwarning {
+	text-indent: -2em;
+	margin-left: 3em;
+}
+
+.deemphasized {
+	color: #666666;
+}
+
+dt {
+	font-weight: bold;
+}
+
+.emphasized {
+	font-weight: bold;
+}
+
+.error, .errorfixed {
+	background-color: #FFFFDD;
+	border: thin solid gray;
+	font-weight: bold;
+}
+
+.error {
+	color: red;
+}
+
+.errorfixed {
+	color: #000099;
+}
+
+#errormessage, .error, #warningmessage, .warning {
+	font-size: 110%;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	margin: 1em;
+}
+
+#errormessage, .error {
+	background-color: #ffe8e8;
+	border: 3px solid #777777;
+	color: red;
+	font-size: larger;
+}
+
+.excitingnews {
+	background-color: #eeeeff;
+	border: 2px dashed #00AA00;
+	overflow: hidden;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.filename {
+	text-decoration: none;
+}
+
+form, #main {
+	padding-top: 1em;
+	padding-left: 1em;
+	padding-right: 1em;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 70em;
+}
+
+form td, form th {
+	padding-top: 0.3em;
+}
+
+h1 {
+	margin: 0em;
+	/* margin-top: 0.25em; */
+	padding-top: 0.25em;
+}
+
+.highlight {
+	background-color: yellow;
+}
+
+img {
+	vertical-align: bottom;
+}
+
+img.icon {
+	height: 16px;
+	width: 16px;
+	vertical-align: baseline;
+}
+
+img.imageicon, img.sidebaricon {
+	border: none;
+	height: 16px;
+	width: 16px;
+	vertical-align: middle;
+}
+
+.leftcolumn {
+	padding-right: 20px;
+	text-align: left;
+	vertical-align: top;
+	width: 150px;
+}
+
+#loading {
+	display: none;
+}
+
+.noteslist li {
+	margin-bottom: 0.5em;
+}
+
+.saveforyourrecords {
+	background-color: #ffc;
+	border: 1px dashed red;
+	padding: 0.5em;
+}
+
+.separated {
+	padding-bottom: 2em;
+}
+
+.separatedtop {
+	padding-top: 2em;
+}
+
+.success {
+	color: #070;
+	font-size: 200%;
+	font-weight: bold;
+}
+
+.acceptedproblems {
+	color: #730;
+	font-size: 200%;
+	font-weight: bold;
+}
+
+table {
+	margin: 0px;
+	padding: 0px;
+	border-width: 0px;
+	color: #000000;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+td, th {
+	vertical-align: top;
+	white-space: nowrap;
+}
+
+td.spaced {
+	padding-right: 20px;
+}
+
+tr.evenrow {
+	background-color: #EEEEEE;
+}
+
+.turninlink {
+	background-color: #EEEEEE;
+	border: 2px solid #CCCCCC;
+	float: right;
+	margin-right: 1em;
+	padding: 0.5em;
+}
+
+.urgent {
+	color: #990000;
+	font-weight: bold;
+}
+
+/* ------------------- */
+button:hover, input[type="submit"]:hover {
+	color: #666600;
+}
+
+h1 {
+	padding: 0em;
+	padding-top: 0.25em;
+	text-align: center;
+}
+
+h2 {
+	line-height: 16pt;
+}
+
+h2.spaced {
+	margin-top: 2em;
+}
+
+.invalid {
+	background-color: #ffff00;
+}
+
+#warningmessage, .warning {
+	background-color: #fff8dd;
+	border: 3px solid rgb(125, 85, 0) /* rgb(205, 135, 0) */;
+	color: rgb(125, 85, 0);
+	font-size: larger;
+}
+
+#errormessage p, #warningmessage p, .warning p {
+	margin-top: 0.25em;
+	margin-bottom: 0.25em;
+}
+
+.failure {
+	color: red;
+	font-weight: bold;
+}
+
+.filename {
+	font-family: monospace;
+}
+
+hr {
+	margin-top: 2em;
+}
+
+input[type="submit"] {
+	font-family: Arial, sans-serif;
+	font-size: 18pt;
+	font-weight: bold;
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+.nametable {
+	 border: none;
+	 border-collapse: collapse;
+	 margin: 0em;
+	 padding: 0em;
+}
+
+.nametable td, .nametable th, td.filename {
+	padding-right: 0.5em;
+}
+
+#submitarea {
+	margin-bottom: 2em;
+	margin-top: 2em;
+	text-align: center;
+}
+
+.surveyarea, .tabcell {
+	display: none;
+}
+
+th {
+	padding-right: 2em;
+	text-align: left;
+}
+
+/* */
+body, html {
+	margin: 0;
+	padding: 0;
+}
+
+.codefile {
+	border: 2px solid #2F6FAB;
+	padding: 0;
+}
+
+.codefile h2 {
+	background-color: #2F6FAB;
+	color: white;
+	margin: 0;
+	padding: 0 0.5em 0.25em;
+}
+
+.codefile pre, .codefile xmp {
+	background-color: #F9F9F9;
+	line-height: 1.05em;
+	margin: 0;
+	padding: 0.75em;
+	overflow: auto;
+}
+
+.columnlabel {
+	float: left;
+	font-weight: bold;
+	width: 9em;
+}
+
+.errormessage, .warningmessage {
+	background-color: #FFEEEE;
+	border: 2px dashed red;
+	margin-left: 2em;
+	margin-right: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+.errormessage h2, .warningmessage h2 {
+	color: red;
+	font-size: larger;
+}
+
+.errormessage pre {
+	font-size: larger;
+	font-weight: bold;
+}
+
+h1 {
+	background-color: #EEEEEE;
+	border-bottom: 2px solid gray;
+	text-align: center;
+}
+
+h1, h2, h3 {
+	white-space: nowrap;
+}
+
+.info {
+	text-align: center;
+}
+
+#main {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+#studentinfoheader {
+	font-size: 12pt;
+	font-weight: normal;
+	margin-left: auto;
+	margin-right: auto;
+	min-width: 20em;
+	width: 20em;
+}
+
+.tooltip {
+	background-color: #FFFFAA;
+	border: 1px solid #999999;
+	margin: 0.5em;
+}
+
+.warningmessage {
+	background-color: #FFFFDD;
+	border: 2px dashed yellow;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+		</style><link type="text/css" rel="stylesheet" href="data:text/css,">
+	</head>
+
+	<body class=" hasGoogleVoiceExt">
+		<h1>Homework Turnin</h1>
+
+
+<div id="main">
+	<h2 id="studentinfoheader">
+		<span class="columnlabel">Name:</span>
+		Shawn		William		Stern		<br>
+
+		<span class="columnlabel">Email:</span>
+		swstern@uw.edu		<br>
+		
+					<span class="columnlabel">Student ID:</span>
+			0921475			<br>
+		
+					<span class="columnlabel">Section:</span>
+			A			<br>
+		
+		<span class="columnlabel">Course:</span>
+		CSE 		373		12sp		<br>
+
+		<span class="columnlabel">Assignment:</span>
+		hw1	</h2>
+
+
+	<h2 id="studentinfoheader">
+		<span class="columnlabel">Receipt ID:</span>
+		136214887baed6a275d24a57ae55b0eb	</h2>
+
+	
+	<p>
+		Replacing prior submission from Wed 2012/04/04 02:14pm.
+	</p>
+	
+	
+<!--
+<div class="warning">
+	NOTE: Emailed receipts temporarily disabled because of a server problem.  Please save a copy of this web page because you won't be receiving a receipt email.
+</div>
+-->
+
+	
+	<h3 class="success">Turnin Successful!</h3>
+
+	<p class="saveforyourrecords">
+		Please <strong style="color: #090; background-color: #ffb">save or print a copy of this page</strong> for your records.  A receipt has also been emailed to you, but you should still save or print a copy of this web page to make certain that you have proof of your turnin.  <strong>If your files become lost or damaged and you do not have any record of your receipt, we will not be able to give you any credit for your work.</strong>
+	</p>
+	
+		
+	<p>
+		The following file(s) were received:
+	</p>
+
+	
+
+		<div class="codefile">
+			<h2>
+				ArrayStack.java &nbsp; &nbsp; 
+				<span class="aside">(3174 bytes)</span>
+			</h2>
+			
+			<pre>import java.util.Arrays;
+import java.util.EmptyStackException;
+
+// Shawn Stern - 0921475 - CSE 373, Spring 2012 - Homework 1
+//
+// Implementation of a DoubleStack, named ArrayStack.
+// Has all standard stack features, including all your old favorites like clear(), push(), pop(),
+// peek, isEmpty(), and toString().
+
+
+public class ArrayStack implements DoubleStack {
+    private double[] stack;     // Array to store the stack
+    private int top;            // Indicates index of the top of the stack
+    
+    // Constructs an ArrayStack object
+    public ArrayStack() {
+        clear();    
+    }
+    
+    // Delete all elements in the current stack
+    @Override
+    public void clear() {
+        // To clear the array, make a new one and reset the value of top
+        stack = new double[10];
+        top = 0;
+    }
+
+    // Returns true if the stack is empty, false otherwise
+    @Override
+    public boolean isEmpty() {
+        // If nothing is in the stack, top is 0
+        return top == 0;
+    }
+
+    // Return the value at the top of the stack without deleting it.
+    // Throws an EmptyStackException if called when the stack is empty.
+    @Override
+    public double peek() {
+        if(isEmpty()) {
+            throw new EmptyStackException();
+        }
+        
+        // Return the value at the top of the stack (index is top - 1)
+        return stack[top - 1];
+    }
+
+    // Returns the value at the top of the stack, and deletes it from the stack.
+    // Throws an EmptyStackException if called when the stack is empty.
+    @Override
+    public double pop() {
+        if(isEmpty()) {
+            throw new EmptyStackException();
+        }
+        
+        // Decrement the value of top, since we're removing an element
+        top--;      
+        
+        // Return stack[top] since the decrement already takes care of top - 1 case.
+        return stack[top];  
+    }
+
+    // Push input double onto the top of the stack. 
+    @Override
+    public void push(double value) {
+        // If trying to add an element beyond the scope of the array, copy the array into a new
+        // array with double the current length
+        if (top == stack.length) {
+            stack = Arrays.copyOf(stack, stack.length * 2);
+        } 
+        
+        // Insert value at index top, and increment top to track this change
+        stack[top] = value;
+        top++;
+    }
+    
+    // Returns a string representation of the stack, with elements appearing in reverse order.
+    public String toString() {
+        // If the stack is empty, return "[]"
+        if(isEmpty()) {
+            return "[]";
+        } else {
+            // Begin the output string with a "["
+            String out = "[";
+            
+            // Iterate over the array, printing elements rounded to 6 digits, followed by a ", "
+            for(int i = top; i &gt; 1; i--) {
+                out = out + Math.round(stack[i - 1] * 1000000.0) / 1000000.0 + ", ";
+            }
+            
+            // Concatenate the final element to the string and close with a "]"
+            out = out + Math.round(stack[0] * 1000000.0) / 1000000.0 + "]";
+            
+            return out;
+        }
+    }
+}</pre>
+		</div>
+
+		
+		<div class="codefile">
+			<h2>
+				LinkedStack.java &nbsp; &nbsp; 
+				<span class="aside">(3035 bytes)</span>
+			</h2>
+			
+			<pre>import java.util.EmptyStackException;
+
+// Shawn Stern - 0921475 - CSE 373, Spring 2012 - Homework 1
+//
+//Implementation of a DoubleStack, named LinkedStack.
+// Has all standard stack features, including all your old favorites like clear(), push(), pop(),
+// peek, isEmpty(), and toString().
+
+public class LinkedStack implements DoubleStack {
+    private LinkedStackNode top;
+    
+    // Constructs a LinkedStack object
+    public LinkedStack() {
+        clear();        
+    }
+    
+    // Delete all elements in the stack
+    @Override
+    public void clear() {
+        // Clear the stack by making the top of the stack null
+        top = null; 
+    }
+
+    // Return true if the stack is empty, false otherwise
+    @Override
+    public boolean isEmpty() {
+        // Stack is empty if the top is null
+        return top == null;
+    }
+
+    // Returns the value at the top of the stack without deleting any elements
+    // Throws an EmptyStackException if called when the stack contains no elements
+    @Override
+    public double peek() {
+        if(isEmpty()) {
+            throw new EmptyStackException();
+        }
+        
+        // Return the value in the top node
+        return top.value;
+    }
+
+    // Returns the value at the top of the stack, and deletes that value from the stack
+    // Throws an EmptyStackException if called when the stack contains no elements
+    @Override
+    public double pop() {
+        if(isEmpty()) {
+            throw new EmptyStackException();
+        }
+        
+        // Store value of the top node in a temporary double, then assign top node to the next node
+        // This lets us return the value and remove that node from the stack
+        double temp = top.value;
+        top = top.next;
+        
+        return temp;
+    }
+
+    // Inserts the given double onto the top of the stack
+    @Override
+    public void push(double value) {
+        // Use the value to create a new node, and make it point to the top of the stack
+        top = new LinkedStackNode(value, top);
+    }
+    
+    // Returns a string representation of the stack, with elements appearing in reverse order.
+    public String toString() {
+        // If the stack is empty, return "[]"
+        if(isEmpty()) {
+            return "[]";
+        } else {
+            // Create a new pointer to the stack so we can operate over it without modifying the
+            // original linked list
+            LinkedStackNode curr = top;
+            
+            // Begin the output string with a "["
+            String out = "[";
+            
+            // Iterate over curr, printing elements rounded to 6 digits, followed by a ", "
+            while(curr.next != null) {
+                out = out + Math.round(curr.value * 1000000.0) / 1000000.0 + ", ";
+                curr = curr.next;
+            }
+            
+            // Concatenate the final element to the string and close with a "]"
+            out = out + Math.round(curr.value * 1000000.0) / 1000000.0 + "]"; 
+            
+            return out;
+        }
+    }
+}</pre>
+		</div>
+
+		
+		<div class="codefile">
+			<h2>
+				README.txt &nbsp; &nbsp; 
+				<span class="aside">(2631 bytes)</span>
+			</h2>
+			
+			<pre>1. Since I'm unfamiliar with JUnit, I went ahead and wrote a testing class with a number of
+scenarios to make sure the stacks work properly. It mainly invovled a series of pushes, pops,
+clears, and toString calls, in addition to using isEmpty() as a boolean to keep from hitting
+exceptions.
+
+I tested for these main cases: each stack starts empty, pushing properly puts elements into the 
+structure like a stack, toString does not modify the original stack strcture, clear actually
+removes everything from the stack, peek returns the value without modifying the stack, the
+ArrayStack properly resizes if we attempt to put more than 10 elements into it, exceptions are
+thrown when needed, pop returns the value AND removes it from the stack, toString properly formats
+the string with commas and spaces in the right places, and isEmpty works correctly.
+
+---
+
+2. The secret phrase is from The Wizard of Oz, and is Dorothy saying "Toto, I don't think we're
+in Kansas anymore."  Am I a nerd for recognizing the phrase when I first heard it reversed? :D
+
+---
+
+3. I can imagine doing this using a pair of queues:
+
+// fields
+private queue = new queue
+
+// Put element into the 'stack'
+public void push(double value) {
+	enqueue value into queue
+}
+
+// pop an element from the stack
+public double pop() {
+	// Dequeue an element from the queue and immediately enqueue it into the same queue until the 
+	// element at the front of the queue is the most recently pushed value, takes (n-1) dequeues 
+	// to get to that element, where n is the size of the queue
+	
+	int size = size of the queue //(# elements in the queue)
+	
+	for size - 1 operations {
+		dequeue element, save as a double
+		immediately re-enqueue the double into the queue
+	}
+	
+	return dequeue; // dequeues element at front of queue and returns it			
+}
+
+---
+	
+4. Looking at the Queue inmplementation vs the Array implementation, there are some marked 
+inefficiencies in the queue version. While queue's push is very simple since it doesn't bother 
+with the resizing case the array has to, the pop algorithm is wildy different and slow.
+
+The pop operation in the Array stack runs in constant time, regardless of how large the stack is.  
+The pop function in the queue version runs in O(n) time because it has to shift n-1 elements (n =
+size of queue at the beginning of the call) out of one queue and back in, then return the value,
+and finally remove it.
+
+I would always choose the Array over the Queue in this case. Except for the resizing, the array 
+runs faster at O(1), and the code is less of a headache to think about.
+</pre>
+		</div>
+
+		
+</div>
+
+
+	<div id="loading">One moment...</div>
+	<pre id="dumptarget"></pre>
+	
+	
+	
+
+	<div id="tc_container" style="display: none" data="ih"></div></body></html>
